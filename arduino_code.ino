@@ -28,7 +28,7 @@ Serial.begin(9600);  //mostly just starting serial monitor, not really specific 
 void loop() {
 
 // This first block is dedicated to the servo
-  for (pos = 0; pos <= 180; pos += 1){
+ /* for (pos = 0; pos <= 180; pos += 1){
     myservo.write(pos);       //instructions telling servo to go to pos
     delay(15);                //delay in ms
   }
@@ -36,6 +36,7 @@ void loop() {
     myservo.write(pos);              
     delay(15);                       
   }
+  */
 
 // This second block is dedicated to the water level sensor
   int value = analogRead(adc_id); // get adc value
@@ -46,6 +47,11 @@ void loop() {
       Serial.print(printBuffer);
       HistoryValue = value;
     }
+  
+  //the following if statement instructs the servo to move to 30 degrees if the value read by the sensor is greater than 0
+  if(value > 100){
+    myservo.write(30);
+  }
 
 // Third block for temperature sensor
    // setting the pin for the thermometer
