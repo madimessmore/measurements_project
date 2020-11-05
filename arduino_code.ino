@@ -1,5 +1,5 @@
 #include <Servo.h>
-#include <NewPing.h>
+//#include <NewPing.h>
 #include <LiquidCrystal.h>
 
 //servo vars
@@ -22,7 +22,7 @@ myservo.attach(9); // the 9 represents what pin the servo is in
 Serial.begin(9600);  //mostly just starting serial monitor, not really specific to depth
 
 //temperature set up
-  lcd.begin(16, 2);
+ // lcd.begin(16, 2);
 }
 
 void loop() {
@@ -53,7 +53,8 @@ void loop() {
     myservo.write(30);
   }
 
-// Third block for temperature sensor
+// Third block for temperature sensor 
+/*
    // setting the pin for the thermometer
    int tempReading = analogRead(tempPin);
      // variables for conversion
@@ -64,7 +65,7 @@ void loop() {
     float tempC = tempK - 273.15;
     // converting celsius to Fahrenheit
     float tempF = (tempC * 9.0)/ 5.0 + 32.0;
-
+*/
     // if LCD display for temperature, use the below block
     /*lcd.setCursor(0, 0);
     lcd.print("Temp         C  ");
