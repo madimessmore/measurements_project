@@ -1,5 +1,5 @@
 #include <Servo.h>
-
+#include <NewPing.h>
 #include <LiquidCrystal.h>
 
 //servo vars
