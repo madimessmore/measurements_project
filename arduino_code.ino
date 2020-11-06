@@ -49,10 +49,13 @@ void loop() {
     }
   
   //the following if statement instructs the servo to move to 30 degrees if the value read by the sensor is greater than 0
-  if(value > 100){
-    myservo.write(30);
+  if(value > 10){
+    myservo.write(pos);
   }
 
+ else {
+ myservo.write(180);
+}
 // Third block for temperature sensor 
 /*
    // setting the pin for the thermometer
