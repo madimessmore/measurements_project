@@ -21,16 +21,6 @@ Serial.begin(9600);  //mostly just starting serial monitor, not really specific 
 void loop() {
 int value = analogRead(adc_id); // get adc value
 
-//servo actions
- for (pos = 0; pos <= 180; pos += 1){
-    myservo.write(pos);       //instructions telling servo to go to pos
-    delay(15);                //delay in ms
-  }
-  for (pos = 180; pos >= 0; pos -= 1) { 
-    myservo.write(pos);              
-    delay(15);                       
-  }
-  
 
 //water sensor actions
     if(((HistoryValue>=value) && ((HistoryValue - value) > 10)) || ((HistoryValue<value) && ((value - HistoryValue) > 10)))
@@ -39,4 +29,22 @@ int value = analogRead(adc_id); // get adc value
       Serial.print(printBuffer);
       HistoryValue = value;
     }
+
+    if(value > 10){
+      myservo.write(pos);
+    }
+    else{
+      myservo.write(0);
+    }
+
+//servo actions on water condition
+    for (value > 550; pos <= 180; pos += 1){
+    myservo.write(pos);       //instructions telling servo to go to pos
+    delay(15);                //delay in ms
+  }
+  for (value < 80; pos >= 0; pos -= 1) { 
+    myservo.write(pos);              
+    delay(15);                       
+  }
 }
+
