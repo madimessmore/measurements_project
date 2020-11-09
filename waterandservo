@@ -18,10 +18,15 @@ Serial.begin(9600);  //mostly just starting serial monitor, not really specific 
 
 }
 
-void loop() {
+void loop() 
+{
 int value = analogRead(adc_id); // get adc value
 
+sprintf(printBuffer,"ADC%d level is %d\n",adc_id, value);
+Serial.print(printBuffer);
 
+
+/*
 //water sensor actions
     if(((HistoryValue>=value) && ((HistoryValue - value) > 10)) || ((HistoryValue<value) && ((value - HistoryValue) > 10)))
     {
@@ -36,6 +41,7 @@ int value = analogRead(adc_id); // get adc value
     else{
       myservo.write(0);
     }
+*/
 
 //servo actions on water condition
 if(value >= 300){
@@ -43,14 +49,12 @@ if(value >= 300){
     myservo.write(pos);       //instructions telling servo to go to pos
     delay(15);                //delay in ms
   }
-  delay(500);
+ delay(150);
 }
 else{
-  for (pos = 180; pos >= 0; pos -= 1) { 
-    myservo.write(pos);              
-    delay(15);                       
+    myservo.write(0);              
+    delay(150);                       
   }
-  delay(500);
-}
+delay(500);
 }
 
