@@ -43,6 +43,18 @@ Serial.print(printBuffer);
     }
 */
 
+if(value >= 300)
+{
+  myservo.write(180);
+  delay(150);
+}
+else
+{
+  myservo.write(0);
+  delay(150);
+}
+
+/*
 //servo actions on water condition
 if(value >= 300){
    for (pos = 0; pos <= 180; pos += 1){
@@ -56,5 +68,5 @@ else{
     delay(150);                       
   }
 delay(500);
+*/
 }
-
