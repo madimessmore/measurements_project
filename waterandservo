@@ -26,47 +26,43 @@ sprintf(printBuffer,"ADC%d level is %d\n",adc_id, value);
 Serial.print(printBuffer);
 
 
-/*
-//water sensor actions
-    if(((HistoryValue>=value) && ((HistoryValue - value) > 10)) || ((HistoryValue<value) && ((value - HistoryValue) > 10)))
-    {
-      sprintf(printBuffer,"ADC%d level is %d\n",adc_id, value);
-      Serial.print(printBuffer);
-      HistoryValue = value;
-    }
-
-    if(value > 10){
-      myservo.write(pos);
-    }
-    else{
-      myservo.write(0);
-    }
-*/
-
-if(value >= 300)
+if(value >= 600)  //max or full submerge pi
 {
   myservo.write(180);
   delay(150);
 }
-else
+else if(value >= 500 && value < 600)   //5th or 5pi over 6
+{
+  myservo.write(150);
+  delay(150);
+}
+else if(value >= 400 && value < 500)   //4th or 2pi over 3
+{
+  myservo.write(120);
+  delay(150);
+}
+else if(value >= 300 && value < 400)   //3rd or pi over 2
+{
+  myservo.write(90);
+  delay(150);
+}
+else if(value >= 200 && value < 300)   //2nd or 2pi over 6
+{
+  myservo.write(60);
+  delay(150);
+}
+else if(value >= 100 && value < 200)   //1st or pi over 6
+{
+  myservo.write(30);
+  delay(150);
+}
+
+}
+else   //min or out
 {
   myservo.write(0);
   delay(150);
 }
 
-/*
-//servo actions on water condition
-if(value >= 300){
-   for (pos = 0; pos <= 180; pos += 1){
-    myservo.write(pos);       //instructions telling servo to go to pos
-    delay(15);                //delay in ms
-  }
- delay(150);
-}
-else{
-    myservo.write(0);              
-    delay(150);                       
-  }
-delay(500);
-*/
+
 }
