@@ -143,7 +143,7 @@ void writeNum(int num)
 {
 	int digit;
 
-	for(int i=0; i<4; i++)
+	for(int i=4; i=>0; i--)
 	{
 		digit = num%10;
 
@@ -218,7 +218,7 @@ void writeNum(int num)
  			writeNine();
  		}
 
- 		delay(1000);
+ 		delay(1);
 
  		num /= 10;
 	}
@@ -229,7 +229,7 @@ void writeNum(int num)
 void loop() {
   writeNum(4762);
 
- 	delay(1000);
+ 	delay(1);
   
   /*int tempReading = analogRead(tempPin);
   double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
