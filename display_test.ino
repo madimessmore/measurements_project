@@ -1,5 +1,6 @@
 #include <LiquidCrystal.h>
 int tempPin = 0;
+char printBuffer[128];
 
 int pinA = 2;
 int pinB = 3;
@@ -250,10 +251,11 @@ void loop() {
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
   float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
-  Serial.print("Temperature is %lf \n", tempF);
+  sprintf(printBuffer,"The temperature is: ",tempF);
+  Serial.print(tempF);
 	
-	writeNum(tempF);
-	delay(1);
+	writeNum(printBuffer);
+	delay(1000);
  
   /*
   digitalWrite(D1, LOW);
