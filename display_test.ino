@@ -45,17 +45,17 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  digitalWrite(D1, HIGH);
-  digitalWrite(D2, LOW);
-  digitalWrite(D3, LOW);
-  digitalWrite(D4, LOW); 
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, HIGH);
+  digitalWrite(D3, HIGH);
+  digitalWrite(D4, HIGH); 
   //0
-  digitalWrite(pinA, LOW);   
+  digitalWrite(pinA, HIGH);   
   digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, LOW);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
   digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, LOW);   
+  digitalWrite(pinF, HIGH);   
   digitalWrite(pinG, LOW);   
   delay(1000);               // wait for a second
   
