@@ -143,37 +143,39 @@ void writeNum(int num)
 {
 	int digit;
 
-	for(int i=4; i=>0; i--)
+	for(int i=0; i<4; i++)
 	{
 		digit = num%10;
 
 		if(i == 0)
 		{
-			digitalWrite(D1, LOW);
+			digitalWrite(D1, HIGH);
  			digitalWrite(D2, HIGH); 
  			digitalWrite(D3, HIGH); 
- 			digitalWrite(D4, HIGH);
+ 			digitalWrite(D4, LOW);
+			
 		}
 		else if(i == 1)
+		{
+			digitalWrite(D1, HIGH);
+ 			digitalWrite(D2, HIGH); 
+ 			digitalWrite(D3, LOW); 
+ 			digitalWrite(D4, HIGH);
+			
+		}
+		else if(i == 2)
 		{
 			digitalWrite(D1, HIGH);
  			digitalWrite(D2, LOW); 
  			digitalWrite(D3, HIGH); 
  			digitalWrite(D4, HIGH);
 		}
-		else if(i == 2)
-		{
-			digitalWrite(D1, HIGH);
- 			digitalWrite(D2, HIGH); 
- 			digitalWrite(D3, LOW); 
- 			digitalWrite(D4, HIGH);
-		}
 		else
 		{
-			digitalWrite(D1, HIGH);
+			digitalWrite(D1, LOW);
  			digitalWrite(D2, HIGH); 
  			digitalWrite(D3, HIGH); 
- 			digitalWrite(D4, LOW);
+ 			digitalWrite(D4, HIGH);
 		}
 		
 
