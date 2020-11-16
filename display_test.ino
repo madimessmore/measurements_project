@@ -139,7 +139,7 @@ void writeNine()
   digitalWrite(pinF, HIGH);   
   digitalWrite(pinG, HIGH);
 }
-void setUnit(int unit)
+void setUnit()
 {
 	digitalWrite(D1, HIGH);
  	digitalWrite(D2, HIGH); 
