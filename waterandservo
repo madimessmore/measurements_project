@@ -26,32 +26,32 @@ sprintf(printBuffer,"ADC%d level is %d\n",adc_id, value);
 Serial.print(printBuffer);
 
 
-if(value >= 600)  //max or full submerge pi
+if(value >= 500)  //max or full submerge pi
 {
   myservo.write(180);
   delay(150);
 }
-else if(value >= 500 && value < 600)   //5th or 5pi over 6
+else if(value >= 450 && value < 500)   //5th or 5pi over 6
 {
   myservo.write(150);
   delay(150);
 }
-else if(value >= 400 && value < 500)   //4th or 2pi over 3
+else if(value >= 400 && value < 450)   //4th or 2pi over 3
 {
   myservo.write(120);
   delay(150);
 }
-else if(value >= 300 && value < 400)   //3rd or pi over 2
+else if(value >= 350 && value < 400)   //3rd or pi over 2
 {
   myservo.write(90);
   delay(150);
 }
-else if(value >= 200 && value < 300)   //2nd or 2pi over 6
+else if(value >= 300 && value < 350)   //2nd or 2pi over 6
 {
   myservo.write(60);
   delay(150);
 }
-else if(value >= 100 && value < 200)   //1st or pi over 6
+else if(value >= 150 && value < 300)   //1st or pi over 6
 {
   myservo.write(30);
   delay(150);
