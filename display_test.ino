@@ -1,19 +1,5 @@
-/*
-  Showing number 0-9 on a Common Anode 7-segment LED display
-  Displays the numbers 0-9 on the display, with one second inbetween.
-    A
-   ---
-F |   | B
-  | G |
-   ---
-E |   | C
-  |   |
-   ---
-    D
-  This example code is in the public domain.
- */
- 
-// Pin 2-8 is connected to the 7 segments of the display.
+#include <LiquidCrystal.h>
+int tempPin = 0;
 
 int pinA = 2;
 int pinB = 3;
@@ -29,6 +15,7 @@ int D4 = 12;
 
 // the setup routine runs once when you press reset:
 void setup() {                
+  Serial.begin(9600);
   // initialize the digital pins as outputs.
   pinMode(pinA, OUTPUT);     
   pinMode(pinB, OUTPUT);     
@@ -155,6 +142,13 @@ void writeNine()
 
 // the loop routine runs over and over again forever:
 void loop() {
+  int tempReading = analogRead(tempPin);
+  double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
+  tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
+  float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
+  float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
+  Serial.print(tempReading);
+  
   digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
   digitalWrite(D3, HIGH);
