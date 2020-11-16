@@ -139,11 +139,28 @@ void writeNine()
   digitalWrite(pinF, HIGH);   
   digitalWrite(pinG, HIGH);
 }
+void setUnit(int unit)
+{
+	digitalWrite(D1, HIGH);
+ 	digitalWrite(D2, HIGH); 
+ 	digitalWrite(D3, HIGH); 
+ 	digitalWrite(D4, LOW);
+
+ 	digitalWrite(pinA, HIGH);   
+  	digitalWrite(pinB, LOW);   
+  	digitalWrite(pinC, LOW);   
+  	digitalWrite(pinD, LOW);   
+  	digitalWrite(pinE, HIGH);   
+  	digitalWrite(pinF, HIGH);   
+  	digitalWrite(pinG, HIGH);
+}
+
+
 void writeNum(int num)
 {
 	int digit;
 
-	for(int i=0; i<4; i++)
+	for(int i=0; i<3; i++)
 	{
 		digit = num%10;
 
@@ -151,19 +168,11 @@ void writeNum(int num)
 		{
 			digitalWrite(D1, HIGH);
  			digitalWrite(D2, HIGH); 
- 			digitalWrite(D3, HIGH); 
- 			digitalWrite(D4, LOW);
-			
-		}
-		else if(i == 1)
-		{
-			digitalWrite(D1, HIGH);
- 			digitalWrite(D2, HIGH); 
  			digitalWrite(D3, LOW); 
  			digitalWrite(D4, HIGH);
 			
 		}
-		else if(i == 2)
+		else if(i == 1)
 		{
 			digitalWrite(D1, HIGH);
  			digitalWrite(D2, LOW); 
@@ -220,12 +229,13 @@ void writeNum(int num)
  			writeNine();
  		}
 
- 		delay(1);
+ 		setUnit();
+
+ 		delay(10);
 
  		num /= 10;
 	}
 }
-
 
 // the loop routine runs over and over again forever:
 void loop() {
@@ -238,7 +248,7 @@ void loop() {
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
   float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
-  Serial.print("Temperature is %d\n", tempC);
+  Serial.print("Temperature is %d\n", tempF);
   
   
   digitalWrite(D1, LOW);
