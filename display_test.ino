@@ -139,15 +139,105 @@ void writeNine()
   digitalWrite(pinF, HIGH);   
   digitalWrite(pinG, HIGH);
 }
+void writeNum(int num)
+{
+	int digit;
+
+	for(int i=0; i<4; i++)
+	{
+		digit = num%10;
+
+		if(i == 0)
+		{
+			digitalWrite(D1, LOW);
+ 			digitalWrite(D2, HIGH); 
+ 			digitalWrite(D3, HIGH); 
+ 			digitalWrite(D4, HIGH);
+		}
+		else if(i == 1)
+		{
+			digitalWrite(D1, HIGH);
+ 			digitalWrite(D2, LOW); 
+ 			digitalWrite(D3, HIGH); 
+ 			digitalWrite(D4, HIGH);
+		}
+		else if(i == 2)
+		{
+			digitalWrite(D1, HIGH);
+ 			digitalWrite(D2, HIGH); 
+ 			digitalWrite(D3, LOW); 
+ 			digitalWrite(D4, HIGH);
+		}
+		else
+		{
+			digitalWrite(D1, HIGH);
+ 			digitalWrite(D2, HIGH); 
+ 			digitalWrite(D3, HIGH); 
+ 			digitalWrite(D4, LOW);
+		}
+		
+
+ 		if(digit == 0)
+ 		{
+ 			writeZero();
+ 		}
+ 		else if(digit == 1)
+ 		{
+ 			writeOne();
+ 		}
+ 		else if(digit == 2)
+ 		{
+ 			writeTwo();
+ 		}
+ 		else if(digit == 3)
+ 		{
+ 			writeThree();
+ 		}
+ 		else if(digit == 4)
+ 		{
+ 			writeFour();
+ 		}
+ 		else if(digit == 5)
+ 		{
+ 			writeFive();
+ 		}
+ 		else if(digit == 6)
+ 		{
+ 			writeSix();
+ 		}
+ 		else if(digit == 7)
+ 		{
+ 			writeSeven();
+ 		}
+ 		else if(digit == 8)
+ 		{
+ 			writeEight();
+ 		}
+ 		else if(digit == 9)
+ 		{
+ 			writeNine();
+ 		}
+
+ 		delay(10);
+
+ 		num /= 10;
+	}
+}
+
 
 // the loop routine runs over and over again forever:
 void loop() {
-  int tempReading = analogRead(tempPin);
+  writeNum(4762);
+
+ 	delay(1000);
+  
+  /*int tempReading = analogRead(tempPin);
   double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
   float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
-  Serial.print(tempReading);
+  Serial.print("Temperature is %d\n", tempC);
+  
   
   digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
@@ -156,7 +246,7 @@ void loop() {
   //0
   writeEight();   
   delay(1000);               // wait for a second
-  
+  */
   /*
   digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
