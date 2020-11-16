@@ -190,7 +190,7 @@ void writeNum(int num)
 		else
 		{
 			setUnit();
-			
+			continue;
 		}
 		
 
@@ -237,32 +237,23 @@ void writeNum(int num)
 
  		delay(10);
 
- 		num /= 10;
+ 		num /= 1;
 	}
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
-  writeNum(762);
+  writeNum(tempF);
 
  	delay(1);
   
-  /*int tempReading = analogRead(tempPin);
+  int tempReading = analogRead(tempPin);
   double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
   float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
   Serial.print("Temperature is %d\n", tempF);
-  
-  
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, HIGH);
-  digitalWrite(D3, HIGH);
-  digitalWrite(D4, HIGH); 
-  //0
-  writeEight();   
-  delay(1000);               // wait for a second
-  */
+ 
   /*
   digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
