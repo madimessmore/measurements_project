@@ -43,6 +43,116 @@ void setup() {
   pinMode(D4, OUTPUT);  
 }
 
+void writeZero()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, LOW);
+}
+
+void writeOne()
+{
+  digitalWrite(pinA, LOW);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, LOW);
+}
+
+void writeTwo()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, LOW);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeThree()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeFour()
+{
+  digitalWrite(pinA, LOW);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeFive()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, LOW);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeSix()
+{
+  digitalWrite(pinA, LOW);   
+  digitalWrite(pinB, LOW);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeSeven()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, LOW);
+}
+
+void writeEight()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, HIGH);
+}
+
+void writeNine()
+{
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, HIGH);
+}
+
 // the loop routine runs over and over again forever:
 void loop() {
   digitalWrite(D1, LOW);
@@ -50,16 +160,11 @@ void loop() {
   digitalWrite(D3, HIGH);
   digitalWrite(D4, HIGH); 
   //0
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, HIGH);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, HIGH);   
-  digitalWrite(pinG, LOW);   
+  writeEight();   
   delay(1000);               // wait for a second
   
- /* digitalWrite(D1, LOW);
+  /*
+  digitalWrite(D1, LOW);
   digitalWrite(D2, HIGH);
   digitalWrite(D3, LOW);
   digitalWrite(D4, LOW); 
@@ -71,7 +176,7 @@ void loop() {
   digitalWrite(pinE, LOW);   
   digitalWrite(pinF, LOW);   
   digitalWrite(pinG, LOW);   
-  delay(200);               // wait for a second
+  delay(1);               // wait for a second
   
   digitalWrite(D1, LOW);
   digitalWrite(D2, LOW);
@@ -85,7 +190,7 @@ void loop() {
   digitalWrite(pinE, LOW);   
   digitalWrite(pinF, HIGH);   
   digitalWrite(pinG, LOW);     
-  delay(200);               // wait for a second
+  delay(1);               // wait for a second
 
   digitalWrite(D1, LOW);
   digitalWrite(D2, LOW);
@@ -99,8 +204,7 @@ void loop() {
   digitalWrite(pinE, LOW);   
   digitalWrite(pinF, LOW);   
   digitalWrite(pinG, HIGH);     
-  delay(200);               // wait for a second
-  */
+  delay(1);               // wait for a second
 /*  
   //4
   digitalWrite(pinA, HIGH);   
