@@ -1,4 +1,3 @@
-#include <LiquidCrystal.h>
 int tempPin = 0;
 char printBuffer[128];
 int oldtemp = 0;
@@ -35,46 +34,46 @@ void setup() {
 
 void writeZero()
 {
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, HIGH);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, HIGH);   
-  digitalWrite(pinG, LOW);
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, HIGH);   
+  digitalWrite(pinG, LOW);
 }
 
 void writeOne()
 {
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, HIGH);   
-  digitalWrite(pinD, LOW);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);
+  digitalWrite(pinA, LOW);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, LOW);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, LOW);
 }
 
 void writeTwo()
 {
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, HIGH);
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, LOW);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, HIGH);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, HIGH);
 }
 
 void writeThree()
 {
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, HIGH);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, HIGH);
+  digitalWrite(pinA, HIGH);   
+  digitalWrite(pinB, HIGH);   
+  digitalWrite(pinC, HIGH);   
+  digitalWrite(pinD, HIGH);   
+  digitalWrite(pinE, LOW);   
+  digitalWrite(pinF, LOW);   
+  digitalWrite(pinG, HIGH);
 }
 
 void writeFour()
@@ -257,120 +256,32 @@ int getTemp()
   return tempF;
 }
 
-// the loop routine runs over and over again forever:
 void loop() {
+	
   temp = getTemp();
 	
   if((temp - oldTemp) > 10 || (temp - oldTemp) < -10)
   {
-	temp = oldTemp;
+	writeNum(temp);
+	oldtemp = temp;
   }
-  writeNum(temp);
+  else
+  {
+  	writeNum(oldTemp);
+  }
+
   delay(1);
 	
-  oldtemp = temp;
+  
  
-  /*
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, HIGH);
-  digitalWrite(D3, LOW);
-  digitalWrite(D4, LOW); 
-  //1
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);   
-  delay(1);               // wait for a second
-  
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, LOW);
-  digitalWrite(D3, HIGH);
-  digitalWrite(D4, LOW); 
-  //2
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, HIGH);   
-  digitalWrite(pinG, LOW);     
-  delay(1);               // wait for a second
-
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, LOW);
-  digitalWrite(D3, LOW);
-  digitalWrite(D4, HIGH); 
-  //3
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, HIGH);     
-  delay(1);               // wait for a second
-/*  
-  //4
-  digitalWrite(pinA, HIGH);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);     
-  delay(1000);               // wait for a second
-  
-  //5
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, LOW);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);     
-  delay(1000);               // wait for a second
-  
-  //6
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, HIGH);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, LOW);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);     
-  delay(1000);               // wait for a second
-  
-  //7
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, HIGH);   
-  digitalWrite(pinG, HIGH);     
-  delay(1000);               // wait for a second
-  
-  //8
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, LOW);   
-  digitalWrite(pinE, LOW);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);     
-  delay(1000);               // wait for a second
-
-  //9
-  digitalWrite(pinA, LOW);   
-  digitalWrite(pinB, LOW);   
-  digitalWrite(pinC, LOW);   
-  digitalWrite(pinD, HIGH);   
-  digitalWrite(pinE, HIGH);   
-  digitalWrite(pinF, LOW);   
-  digitalWrite(pinG, LOW);     
-  delay(1000);               // wait for a second
-  */
 }
+
+
+
+
+
+
+
+
+
+
