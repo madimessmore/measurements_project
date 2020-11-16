@@ -246,7 +246,7 @@ void writeNum(int num)
 int getTemp()
 {
   int tempReading = analogRead(tempPin);
-  tempReading -= 981;
+  tempReading -= 930;
   double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
   float tempC = tempK - 273.15;            // Convert Kelvin to Celcius
@@ -261,14 +261,14 @@ void loop() {
 
   temp = getTemp();
 	
-  if((temp - oldTemp) > 10 || (temp - oldTemp) < -10)
+  if((temp - oldtemp) > 10 || (temp - oldtemp) < -10)
   {
 	writeNum(temp);
 	oldtemp = temp;
   }
   else
   {
-  	writeNum(oldTemp);
+  	writeNum(oldtemp);
   }
 
   delay(1);
