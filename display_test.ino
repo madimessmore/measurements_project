@@ -263,8 +263,9 @@ void loop() {
 	
   if((temp - oldTemp) > 10 || (temp - oldTemp) < -10)
   {
-	writeNum(temp);
+	temp = oldTemp;
   }
+  writeNum(temp);
   delay(1);
 	
   oldtemp = temp;
