@@ -162,11 +162,7 @@ void writeNum(int num)
 
 	for(int i=0; i<4; i++)
 	{
-		if(i==3)
-		{
-			setUnit();
-			continue;
-		}
+
 		digit = num%10;
 
 		if(i == 0)
@@ -184,12 +180,17 @@ void writeNum(int num)
  			digitalWrite(D3, HIGH); 
  			digitalWrite(D4, HIGH);
 		}
-		else
+		else if(i == 2)
 		{
 			digitalWrite(D1, LOW);
  			digitalWrite(D2, HIGH); 
  			digitalWrite(D3, HIGH); 
  			digitalWrite(D4, HIGH);
+		}
+		else
+		{
+			setUnit();
+			
 		}
 		
 
@@ -234,8 +235,6 @@ void writeNum(int num)
  			writeNine();
  		}
 
- 		setUnit();
-
  		delay(10);
 
  		num /= 10;
@@ -244,7 +243,7 @@ void writeNum(int num)
 
 // the loop routine runs over and over again forever:
 void loop() {
-  writeNum(4762);
+  writeNum(762);
 
  	delay(1);
   
