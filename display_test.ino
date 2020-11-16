@@ -235,9 +235,9 @@ void writeNum(int num)
  			writeNine();
  		}
 
- 		delay(10);
+ 		delay(1);
 
- 		num /= 1;
+ 		num /= 10;
 	}
 }
 
