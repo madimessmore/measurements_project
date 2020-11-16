@@ -257,7 +257,7 @@ int getTemp()
 }
 
 void loop() {
-	
+
   temp = getTemp();
 	
   if((temp - oldTemp) > 10 || (temp - oldTemp) < -10)
@@ -275,13 +275,3 @@ void loop() {
   
  
 }
-
-
-
-
-
-
-
-
-
-
