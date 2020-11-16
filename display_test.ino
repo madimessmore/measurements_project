@@ -1,6 +1,8 @@
 #include <LiquidCrystal.h>
 int tempPin = 0;
 char printBuffer[128];
+int oldtemp = 0;
+int temp = 0;
 
 int pinA = 2;
 int pinB = 3;
@@ -251,19 +253,21 @@ int getTemp()
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
   sprintf(printBuffer,"The temperature is: %lf\n",tempF);
   Serial.print(printBuffer);
-  delay(1000);
 	
   return tempF;
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
-  
-  
-  
+  temp = getTemp();
 	
-	writeNum(getTemp());
-	delay(1);
+  if((temp - oldTemp) > 10 || (temp - oldTemp) < -10)
+  {
+	writeNum(temp);
+  }
+  delay(1);
+	
+  oldtemp = temp;
  
   /*
   digitalWrite(D1, LOW);
