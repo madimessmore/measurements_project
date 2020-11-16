@@ -242,10 +242,8 @@ void writeNum(int num)
 	}
 }
 
-// the loop routine runs over and over again forever:
-void loop() {
-  
-  
+int getTemp()
+{
   int tempReading = analogRead(tempPin);
   double tempK = log(10000.0 * ((1024.0 / tempReading - 1)));
   tempK = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * tempK * tempK )) * tempK );       //  Temp Kelvin
@@ -253,8 +251,18 @@ void loop() {
   float tempF = (tempC * 9.0)/ 5.0 + 32.0; // Convert Celcius to Fahrenheit
   sprintf(printBuffer,"The temperature is: %lf\n",tempF);
   Serial.print(printBuffer);
+  delay(1000);
 	
-	writeNum(tempF);
+  return tempF;
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  
+  
+  
+	
+	writeNum(getTemp());
 	delay(1);
  
   /*
