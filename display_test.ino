@@ -160,8 +160,13 @@ void writeNum(int num)
 {
 	int digit;
 
-	for(int i=0; i<3; i++)
+	for(int i=0; i<4; i++)
 	{
+		if(i==3)
+		{
+			setUnit();
+			continue;
+		}
 		digit = num%10;
 
 		if(i == 0)
